@@ -1,10 +1,9 @@
 import express from 'express'
+import routes from './routes'
 
 const app = express()
-app.get('/', (req, res) => {
-  const users = ['']
 
-  return res.json({ users })
-})
-
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+app.use(routes)
 app.listen(3001)
