@@ -11,6 +11,6 @@ import FileController from './controllers/FileController'
 const routes = express.Router()
 
 routes.post('/boxes', BoxController.store)
-routes.post('/files', multer(multerConfig).single('file'), FileController.store)
+routes.post('/boxes/:id/files', multer(multerConfig).single('file'), FileController.store)
 
 export default routes
