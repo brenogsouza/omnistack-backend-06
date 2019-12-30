@@ -13,6 +13,8 @@ class FileController {
 
     box.files.push(file) // adicionando uma nova informação no array
     await box.save()
+
+    req.io.sockets.in(box._id).emit('file', file) // para receber uma mensagem realtime
     // criando um arquivo
     return res.json(file)
   }
