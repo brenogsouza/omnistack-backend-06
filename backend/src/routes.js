@@ -1,9 +1,8 @@
 import express from 'express'
+import BoxController from './controllers/BoxController'
 
 const routes = express.Router()
 
-routes.get('/teste', (req, res) => {
-  return res.send('Hello World')
-})
+routes.post('/boxes', BoxController.store)
 
 export default routes
