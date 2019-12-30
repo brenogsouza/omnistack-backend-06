@@ -1,8 +1,8 @@
-import express from 'express'
-import mongoose from 'mongoose'
-import routes from './routes'
-import path from 'path'
-import cors from 'cors'
+const express = require('express')
+const mongoose = require('mongoose')
+const routes = require('./routes')
+const path = require('path')
+const cors = require('cors')
 
 const app = express()
 app.use(cors()) // para todo poder utilizar a aplicação

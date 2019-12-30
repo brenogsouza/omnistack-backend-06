@@ -1,12 +1,12 @@
-import express from 'express'
-import multer from 'multer'
+const express = require('express')
+const multer = require('multer')
 
 // CONFIGURES
-import multerConfig from './config/multer'
+const multerConfig = ('./config/multer')
 
 // CONTROLLERS
-import BoxController from './controllers/BoxController'
-import FileController from './controllers/FileController'
+const BoxController = require('./controllers/BoxController')
+const FileController = require('./controllers/FileController')
 
 const routes = express.Router()
 
@@ -15,6 +15,6 @@ routes.get('/boxes/:id', BoxController.show)
 
 // ROTAS POST
 routes.post('/boxes', BoxController.store)
-routes.post('/boxes/:id/files', multer(multerConfig).single('file'), FileController.store)
+routes.post('/boxes/:id/files', multer({ multerConfig }).single('file'), FileController.store)
 
-export default routes
+module.exports = routes

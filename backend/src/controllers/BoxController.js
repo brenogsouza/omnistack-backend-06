@@ -1,4 +1,4 @@
-import Box from '../models/Box'
+const Box = require('../models/Box')
 
 class BoxController {
   async store (req, res) {
@@ -18,4 +18,4 @@ class BoxController {
   }
 }
 
-export default new BoxController()
+module.exports = new BoxController()

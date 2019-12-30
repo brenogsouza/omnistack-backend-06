@@ -1,6 +1,6 @@
 // model que representa onde será armazenado os arquivos
 
-import mongoose from 'mongoose'
+const mongoose = require('mongoose')
 
 const File = new mongoose.Schema({
   title: {
@@ -24,4 +24,4 @@ File.virtual('url').get(function () {
   return `${url}/files/${encodeURIComponent(this.path)}`
 })
 
-export default mongoose.model('File', File)
+module.exports = mongoose.model('File', File)
