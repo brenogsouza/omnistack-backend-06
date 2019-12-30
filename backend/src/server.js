@@ -2,8 +2,11 @@ import express from 'express'
 import mongoose from 'mongoose'
 import routes from './routes'
 import path from 'path'
+import cors from 'cors'
 
 const app = express()
+app.use(cors()) // para todo poder utilizar a aplicação 
+
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
 
