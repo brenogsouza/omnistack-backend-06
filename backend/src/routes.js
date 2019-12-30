@@ -2,7 +2,7 @@ const express = require('express')
 const multer = require('multer')
 
 // CONFIGURES
-const multerConfig = ('./config/multer')
+const multerConfig = require('./config/multer')
 
 // CONTROLLERS
 const BoxController = require('./controllers/BoxController')
