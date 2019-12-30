@@ -5,7 +5,7 @@ import path from 'path'
 import cors from 'cors'
 
 const app = express()
-app.use(cors()) // para todo poder utilizar a aplicação 
+app.use(cors()) // para todo poder utilizar a aplicação
 
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
@@ -26,7 +26,7 @@ mongoose.connect('mongodb+srv://reactbox:reactbox@meubanco-tgxc0.mongodb.net/rea
 app.use((req, res, next) => { req.io = io; return next() })
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use('/files', express.static(path.resolve(__dirname, '..', 'temp')))
+app.use('/files', express.static(path.resolve(__dirname, '..', 'tmp')))
 app.use(routes)
 
 server.listen(3001)
