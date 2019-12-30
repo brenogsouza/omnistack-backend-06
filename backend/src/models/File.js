@@ -19,7 +19,9 @@ const File = new mongoose.Schema({
 
 // campo virtual para disponibilizar URL para o front
 File.virtual('url').get(function () {
-  return `http://localhost:3001/files/${encodeURIComponent(this.path)}`
+  const url = process.env.URL || 'http://localhost:3001'
+
+  return `${url}/files/${encodeURIComponent(this.path)}`
 })
 
 export default mongoose.model('File', File)
