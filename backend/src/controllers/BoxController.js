@@ -8,8 +8,11 @@ class BoxController {
   }
 
   async show (req, res) {
-    // retorna a box o todos os arquivos
-    const box = await Box.findById(req.params.id)
+    // retorna a box o todos os arquivos e usa o relacionamento de files
+    const box = await Box.findById(req.params.id).populate({
+      path: 'files',
+      options: { sort: { createdAt: -1 } } // ordenando conforme o mongo no decrescente
+    })
 
     return res.json(box)
   }
