@@ -12,7 +12,14 @@ const File = new mongoose.Schema({
     required: true
   }
 }, {
-  timestamps: true
+  timestamps: true,
+  toObject: { virtuals: true },
+  toJSON: { virtuals: true }
+})
+
+// campo virtual para disponibilizar URL para o front
+File.virtual('url').get(function () {
+  return `http://localhost:3001/files/${encodeURIComponent(this.path)}`
 })
 
 export default mongoose.model('File', File)
